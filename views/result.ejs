@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Matching Pets - The Concordia Paws</title>
+  <link rel="stylesheet" href="/css/A1_Q8_Stylesheet.css">
+</head>
+<body>
+  <div class="MainBody">
+    <div class="header">
+      <%- include('header') %>
+    </div>
+    <div class="content">
+      <h1 class="contentHeader">Matching Pets</h1>
+      <div class="contentImageRow">
+        <% if (pets.length > 0) { %>
+          <% pets.forEach(pet => { %>
+            <div class="contentImageCaptioned">
+              <fieldset>
+                <legend><%= pet.name %> - <%= pet.breed %></legend>
+                <img class="contentImageProfile" src="/images/<%= pet.breed.replace(' ', '-').toLowerCase() %>.jpg" alt="<%= pet.breed %>">
+                <p class="contentText">
+                  Name: <%= pet.name %><br>
+                  Animal: <%= pet.type %><br>
+                  Breed: <%= pet.breed %><br>
+                  Age: <%= pet.age %><br>
+                  Gender: <%= pet.gender %><br>
+                  Notes: <%= pet.notes.join(', ') %>
+                </p>
+                <button class="browseInterested">Interested</button>
+              </fieldset>
+            </div>
+          <% }) %>
+        <% } else { %>
+          <p class="contentText">No matching pets found. Please try adjusting your search criteria.</p>
+        <% } %>
+      </div>
+    </div>
+    <div class="footer">
+      <%- include('footer') %>
+    </div>
+  </div>
+</body>
+</html>

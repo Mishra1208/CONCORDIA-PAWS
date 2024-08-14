@@ -1,0 +1,58 @@
+<!-- pet_match.ejs -->
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>Pet Match Results - The Concordia Paws</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/css/A1_Q8_Stylesheet.css">
+</head>
+<body>
+  <div class="MainBody">
+    <div class="header">
+      <%- include('header') %>
+    </div>
+    <div class="sideMenu">
+      <p class="menu">Paw Menu</p>
+      <a href="/">Home</a>
+      <a href="/login">Login</a>
+      <a href="/pets">Browse Available Pets</a>
+      <a href="/find_dog_cat">Find a Dog/Cat</a>
+      <a href="/dog_care">Dog Care</a>
+      <a href="/cat_care">Cat Care</a>
+      <a href="/register">Register</a>
+      <a href="/rehabilitate">Have a pet to give away?</a>
+      <a href="/contact_us">Contact Us</a>
+    </div>
+    <div class="content">
+      <h1>Matching Pets</h1>
+      <% if (pets.length > 0) { %>
+        <div class="contentImageRow">
+          <% pets.forEach(pet => { %>
+            <div class="contentImageCaptioned contentImageCaptioned1">
+              <fieldset>
+                <legend><%= pet['Name of Pet'] %> - <%= pet['Breed of Pet'] %></legend>
+                <p class="contentText">
+                  Owner: <%= pet['Owner'] %><br>
+                  Animal: <%= pet['Type of Pet'] %><br>
+                  Breed: <%= pet['Breed of Pet'] %><br>
+                  Age: <%= pet['Age of Pet'] %><br>
+                  Gender: <%= pet['Gender of Pet'] %><br>
+                  Notes: <%= pet['Notes'] %><br>
+                  Email: <%= pet['User Email'] %>
+                </p>
+              </fieldset>
+            </div>
+          <% }) %>
+        </div>
+      <% } else { %>
+        <p><%= message %></p>
+      <% } %>
+    </div>
+    <div class="footer">
+      <%- include('footer') %>
+    </div>
+  </div>
+  <script src="/js/script.js"></script>
+</body>
+</html>

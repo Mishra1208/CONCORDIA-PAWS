@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>Registered Pets</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/css/A1_Q8_Stylesheet.css">
+  <link rel="icon" href="/images/titleIMG.png">
+</head>
+<body>
+  <div class="MainBody">
+    <div class="header">
+      <%- include('header') %>
+    </div>
+    <div class="sideMenu">
+      <p class="menu">Paw Menu</p>
+      <!-- Navigation links to different pages -->
+      <a href="/">Home</a>
+      <a href="/find_dog_cat">Find a Dog/Cat</a>
+      <a href="/dog_care">Dog Care</a>
+      <a href="/cat_care">Cat Care</a>
+      <a href="/rehabilitate">Have a pet to give away?</a>
+      <a href="/contact_us">Contact Us</a>
+      <a href="/register">Register</a>
+      <a href="/login">Login</a>
+    </div>
+    <div class="content">
+      <h1>Registered Pets</h1>
+      <% if (locals.pets && pets.length > 0) { %>
+        <div class="contentImageRow">
+          <% pets.forEach(pet => { %>
+            <div class="contentImageCaptioned contentImageCaptioned1">
+              <fieldset>
+                <legend><%= pet.petName %> - <%= pet.breed %></legend>
+                <img class="contentImageProfile" src="<%= pet.image %>" alt="<%= pet.description %>">
+                <p class="contentText">
+                  Name: <%= pet.petName %><br>
+                  Animal: <%= pet.petType %><br>
+                  Breed: <%= pet.breed %><br>
+                  Age: <%= pet.age %><br>
+                  Gender: <%= pet.gender %><br>
+                  Notes: <%= pet.notes %>
+                </p>
+              </fieldset>
+            </div>
+          <% }) %>
+        </div>
+      <% } else { %>
+        <p>No pets registered yet.</p>
+      <% } %>
+    </div>
+    <div class="footer">
+      <%- include('footer') %>
+    </div>
+  </div>
+  <script src="/js/script.js"></script>
+</body>
+</html>

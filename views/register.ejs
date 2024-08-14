@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>Registration</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/css/A1_Q8_Stylesheet.css">
+  <script>
+    function validateForm() {
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+      const usernameRegex = /^[a-zA-Z0-9]+$/;
+      const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{4,}$/;
+
+      if (!usernameRegex.test(username)) {
+        alert('Username can only contain letters and digits.');
+        return false;
+      }
+
+      if (!passwordRegex.test(password)) {
+        alert('Password must be at least 4 characters long and contain at least one letter and one digit.');
+        return false;
+      }
+
+      return true;
+    }
+  </script>
+</head>
+<body>
+  <div class="MainBody">
+    <div class="header">
+      <%- include('header') %>
+    </div>
+    <!-- Content for Home page goes here -->
+    <div class="sideMenu">
+        <p class="menu">Paw Menu</p>
+        <!-- Navigation links to different pages -->
+        <a href="/">Home</a>
+        <a href="/pets">Browse Available Pets</a>
+        <a href="/Find_DOG_CAT">Find a Dog/Cat</a>
+        <a href="/Dog_Care">Dog Care</a>
+        <a href="/Cat_Care">Cat Care</a>
+        <a href="/register">Register</a>
+        <a href="/rehabilitate">Have a pet to give away?</a>
+        <a href="/Contact_Us">Contact Us</a>
+        
+        
+      </div>
+<div class="content">
+    <p class="contentHeader">Registration Page</p>
+      <% if (locals.errorMessage) { %>
+        <p style="color: red;"><%= errorMessage %></p>
+      <% } %>
+      <% if (locals.successMessage) { %>
+        <p style="color: green;"><%= successMessage %></p>
+      <% } %>
+      <form action="/register" method="post" onsubmit="return validateForm()">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <button type="submit">Register</button>
+      </form>
+    </div>
+    <div class="footer">
+      <%- include('footer') %>
+    </div>
+  </div>
+  <script src="/js/script.js"></script>
+</body>
+</html>

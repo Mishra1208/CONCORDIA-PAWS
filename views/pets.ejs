@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>The Concordia Paws</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/css/A1_Q8_Stylesheet.css">
+  <link rel="icon" href="/images/titleIMG.png">
+</head>
+<body>
+  <div class="MainBody">
+    <div class="header">
+      <%- include('header') %>
+    </div>
+    <!-- Content for pet page goes here -->
+    <div class="content" id="browseMenu"> <!--changed here -->
+        <p class="contentHeader">Paws Available for Adoption</p>
+        <p class="contentText">
+          <div class="contentImageRow">
+            <div class="contentImageCaptioned1 contentImageCaptioned">
+              <fieldset>
+                <legend>Charlie-Golden Retriever</legend>
+                <img class="contentImageProfile" src="/images/Golden-Retriever.jpg" alt="Golden Retriever standing among colorful autumn leaves in the woods">
+                <p class="contentText">
+                  Name: Charlie<br>
+                  Animal: Dog<br>
+                  Breed: Golden Retriever<br>
+                  Age: 9 years<br>
+                  Gender: Male<br>
+                  Notes: Dog-friendly, Cat-friendly, Children-friendly
+                </p>
+                <button class="browseInterested">Interested</button>
+              </fieldset>
+            </div>
+            <div class="contentImageCaptioned2 contentImageCaptioned">
+              <fieldset>
+                <legend>Beagle</legend>
+              <img src="/images/beagle.jpg" alt="Beagle dog standing on a rocky mountain trail with a panoramic view">
+              <p class="contentText">
+                Name: Cooper<br>
+                Animal: Dog<br>
+                Breed: Beagle<br>
+                Age: 10 years<br>
+                Gender: Female<br>
+                Notes: Dog-friendly, Children-friendly, friendly
+              </p>
+              <button class="browseInterested">Interested</button>
+              </fieldset>
+            </div>
+            <div class="contentImageCaptioned3 contentImageCaptioned">
+              <fieldset>
+                <legend>persian-cat</legend>
+              <img src="/images/persian-cat.jpg" alt="Close-up of an orange Persian cat with large, expressive amber eyes and a fluffy fur">
+              <p class="contentText">
+                Name: Simba<br>
+                Animal: Cat<br>
+                Breed: Persian cat<br>
+                Age: 6 years<br>
+                Gender: Male<br>
+                Notes: Dog-friendly, Cat-friendly, Children-friendly
+              </p>
+              <button class="browseInterested">Interested</button>
+              </fieldset>
+            </div>
+            <div class="contentImageCaptioned4 contentImageCaptioned">
+              <fieldset>
+                <legend>american-shorthair</legend>
+              <img src="/images/american-shorthair-cat.jpg" alt="American Shorthair cat with striking green eyes and a distinctive gray and black striped coat">
+              <p class="contentText">
+                Name: Daisy<br>
+                Animal: Cat<br>
+                Breed: American Shorthair<br>
+                Age: 3 years<br>
+                Gender: Female<br>
+                Notes:  Cat-friendly, Children-friendly
+              </p>
+              <button class="browseInterested">Interested</button>
+              </fieldset>
+            </div>
+          </div>
+      </div>
+
+    <div class="sideMenu">
+        <p class="menu">Paw Menu</p>
+        <!-- Navigation links to different pages -->
+        <a href="/login">Login</a>
+        <a href="/">Home</a>
+        <a href="/pets">Browse Available Pets</a>
+        <a href="/Find_DOG_CAT">Find a Dog/Cat</a>
+        <a href="/Dog_Care">Dog Care</a>
+        <a href="/Cat_Care">Cat Care</a>
+        <a href="/register">Register</a>
+        <a href="/rehabilitate">Have a pet to give away?</a>
+        <a href="/Contact_Us">Contact Us</a>
+        <a href="/logout">Logout</a>
+      </div>
+      <div class="footer">
+        <%- include('footer') %>
+      </div>
+    </div>
+    <script src="/js/script.js"></script>
+  </body>
+  </html>
+  

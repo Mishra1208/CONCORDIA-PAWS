@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>Rehabilitate</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/css/A1_Q8_Stylesheet.css">
+  <link rel="icon" href="/images/titleIMG.png">
+</head>
+<body>
+  <div class="MainBody">
+    <div class="header">
+      <%- include('header') %>
+    </div>
+    <!-- Content for pet page goes here -->
+    <div class="sideMenu">
+        <p class="menu">Paw Menu</p>
+        <!-- Navigation links to different pages -->
+        
+        <a href="/">Home</a>
+        <a href="/pets">Browse Available Pets</a>
+        <a href="/Find_DOG_CAT">Find a Dog/Cat</a>
+        <a href="/Dog_Care">Dog Care</a>
+        <a href="/Cat_Care">Cat Care</a>
+        <a href="/register">Register</a>
+        <a href="/rehabilitate">Have a pet to give away?</a>
+        <a href="/Contact_Us">Contact Us</a>
+        <a href="/logout">Logout</a>
+      </div>
+    <div class="content">
+      <p class="contentHeader">Rehome your pet</p>
+      <% if (locals.errorMessage) { %>
+        <p style="color: red;"><%= errorMessage %></p>
+      <% } %>
+      <img class="contentImageFloatRight" src="/images/adopt.jpg" alt="Relocating a pet">
+      <form action="/register_pet" method="post">
+        <!-- Name your pet -->
+        <label class="contentText" for="petName">Pet Name:</label>
+        <input type="text" id="petName" name="petName" required>
+        <br><br>
+        <!-- QUESTION 1: Pet type selection -->
+        <label class="contentText">Is your pet a Dog or a Cat?</label>
+        <br><br>
+        <input type="radio" class="contentText" id="givePetDog" name = "petType" name="givePet" value="dog" required>
+        <label for="givePetDog">Dog</label>
+        <br>
+        <input type="radio" class="contentText" id="givePetCat" name = "petType" name="givePet" value="cat">
+        <label for="givePetCat">Cat</label>
+        <br><br><br>
+        <!-- QUESTION 2: Breed specification -->
+        <label class="contentText">Please specify the breed</label>
+        <br><br>
+        <select name="breed" name="giveBreed" class="formDropdown" required>
+          <option value="" selected hidden disabled>Select here.</option>
+          <option value="Golden Retriever">Golden Retriever</option>
+          <option value="Beagle">Beagle</option>
+          <option value="Persian cat">Persian cat</option>
+          <option value="American Shorthair">American Shorthair</option>
+          
+        </select>
+        <br><br><br>
+        
+        <!-- QUESTION 3: Age range selection -->
+        <label class="contentText">What is their age range?</label>
+        <br><br>
+        <select name="age" name="giveAge" class="formDropdown" required>
+          <option value="" selected hidden disabled>Select here.</option>
+          <option value="0to3">0 to 3 years</option>
+          <option value="4to7">4 to 7 years</option>
+          <option value="8to11">8 to 11 years</option>
+          <option value="12to15">12 to 15 years</option>
+          <option value="16plus">16 years and higher</option>
+        </select>
+        <br><br><br>
+        <!-- QUESTION 4: Gender selection -->
+        <label class="contentText">Please select the gender</label>
+        <br><br>
+        <input type="radio" class="contentText" id="giveGenderMale" name="gender" name="giveGender" value="male" required>
+        <label for="giveGenderMale">Male</label>
+        <br>
+        <input type="radio" class="contentText" id="giveGenderFemale" name="gender" name="giveGender" value="female">
+        <label for="giveGenderFemale">Female</label>
+        <br>
+        <input type="radio" class="contentText" id="giveGenderNone" name="gender" name="giveGender" value="none">
+        <label for="giveGenderNone">No preference</label>
+        <br><br><br>
+        <!-- QUESTION 5: Characteristics of the pet -->
+        <label class="contentText">Select the best that describe your pet?</label>
+        <br><br>
+        <input type="checkbox" class="contentText" id="giveDogs"  name="notes"name="giveCharacteristic" value="Dog-friendly" required>
+        <label for="giveDogs">Dog-friendly</label>
+        <br>
+        <input type="checkbox" class="contentText" id="giveCharacteristic" name="notes" name="giveCharacteristic" value="Cat-friendly">
+        <label for="giveCharacteristic">Cat-friendly</label>
+        <br>
+        <input type="checkbox" class="contentText" id="giveChildren" name="notes" name="giveCharacteristic" value="Children-friendly">
+        <label for="giveChildren">Children-friendly</label>
+        <br><br><br>
+        <!-- COMMENT AREA: Additional information -->
+        <label class="contentText">Should The Concordia Paw be informed of anything specific?</label>
+        <br><br>
+        <input class="formTextInput" name="precaution" type="text" placeholder="If yes, type here." required>
+        <br><br><br>
+        <!-- CONTACT INFORMATION: User's name and email -->
+        <label class="contentText">Please provide the following details.</label>
+        <br><br>
+        <label class="contentText contentTextSmall">Name: </label><input name="username" type="text" required>
+        <br>
+        <label class="contentText contentTextSmall">Email: </label><input name="email"type="email" required>
+        <br><br><br>
+        <!-- FORM BUTTONS: Submit and Reset -->
+        <button type="submit" id="submit" name="submit">Submit</button>
+        <button type="reset" id="reset" name="reset">Reset</button>
+      </form>
+    </div>
+    <div class="footer">
+      <%- include('footer') %>
+    </div>
+  </div>
+  <script src="/js/script.js"></script>
+</body>
+</html>
